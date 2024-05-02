@@ -1,4 +1,4 @@
-import { Imessage, useMessage } from '@/lib/store/messages'
+import { IMessage, useMessage } from '@/lib/store/messages'
 import Image from 'next/image'
 import React from 'react'
 import {
@@ -13,7 +13,7 @@ import { MoreHorizontal } from 'lucide-react'
 import { useUser } from '@/lib/store/user'
 
   
-const Message = ({message}: {message: Imessage}) => {
+const Message = ({message}: {message: IMessage}) => {
     const user = useUser((state) => state.user);
   return (
     <div className='flex gap-2' >
@@ -53,7 +53,7 @@ const Message = ({message}: {message: Imessage}) => {
   )
 }
 
-const MessageMenu = ({ message }: { message: Imessage }) => {
+const MessageMenu = ({ message }: { message: IMessage }) => {
 	const setActionMessage = useMessage((state) => state.setActionMessage);
 
 	return (

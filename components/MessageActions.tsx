@@ -11,7 +11,7 @@ import {
 	AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
-import { Imessage, useMessage } from "@/lib/store/messages";
+import { IMessage, useMessage } from "@/lib/store/messages";
 import { toast } from "sonner";
 
 import {
@@ -90,7 +90,7 @@ export function EditAlert() {
 				...actionMessage,
 				text,
 				is_edit: true,
-			} as Imessage);
+			} as IMessage);
 			const error = await updateMessage(actionMessage?.id!, text)
 			if (error) {
 				toast.error(error.message);

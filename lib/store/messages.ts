@@ -7,7 +7,7 @@ export type IMessage = {
   is_edit: boolean;
   sent_by: string;
   text: string;
-  user: {
+  users: {
     avatar_url: string;
     created_at: string;
     full_name: string;

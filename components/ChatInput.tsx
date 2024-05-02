@@ -37,7 +37,7 @@ const ChatInput = () => {
 
         // }
 
-        // addMessage(newMessage as Imessage)
+        // addMessage(newMessage as IMessage)
         // setOptimisticIds(newMessage.id)
 
 
