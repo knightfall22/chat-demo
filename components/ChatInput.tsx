@@ -6,7 +6,7 @@ import { createClient } from '@/lib/supabase/browser'
 import { toast } from 'sonner'
 import { v4 as uuidv4 } from 'uuid';
 import { useUser } from '@/lib/store/user'
-import { Imessage, useMessage } from '@/lib/store/messages'
+import { IMessage, useMessage } from '@/lib/store/messages'
 import { publishMessage } from '@/hooks/useMessages'
 import { useConversation } from '@/lib/store/conversation'
 
