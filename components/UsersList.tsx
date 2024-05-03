@@ -66,14 +66,9 @@ const UsersList = ({list}: {list: User[]}) => {
 }
 
 export const ListOfUsers = ({list}: {list: User[]}) => {
-	const router = useRouter()
-	const currentUser = useUser((state) => state.user);
 
-	const handler = (user: User) => {
-		createConversation(currentUser?.id!, user.id)
-		document.getElementById("trigger-users-list")?.click();
-		router.refresh()
-	}
+
+
 		return (
 			<Dialog>
 				<DialogTrigger asChild>
@@ -85,14 +80,7 @@ export const ListOfUsers = ({list}: {list: User[]}) => {
 					</DialogHeader>
 					
 					{list.map((user) => (
-								<div className='flex gap-2 items-center w-full p-2 px-6 border-b-2 border-t-2' key={user.id}>
-									{/* @ts-ignore */}
-									<Image src={user.avatar_url} alt="Profile" className="rounded-full w-10 h-10 mr-2" width={40} height={40} />
-									<div className='cursor-pointer'>
-									{/* @ts-ignore */}
-										<a className="text-purple-500 hover:underline text-sm" onClick={() => handler(user)}>{user.full_name}</a>
-									</div>
-								</div>
+						<SingleUser key={user.id} user={user} />
 					))}
 					{/* <DialogFooter>
 						<Button type="submit" onClick={handleEdit}>
@@ -105,19 +93,27 @@ export const ListOfUsers = ({list}: {list: User[]}) => {
 	
 }
 
-// export const SingleUser = ({user}: {user:User}) => {
-// 		const currentUser = useUser((state) => state.user);
+export const SingleUser = ({user}: {user:User}) => {
+	const router = useRouter()
+	const currentUser = useUser((state) => state.user);
+
+		const handler = (user: User) => {
+			createConversation(currentUser?.id!, user.id)
+			document.getElementById("trigger-users-list")?.click();
+			router.refresh()
+		}
 		
-// 	    return (
-// 			<div className='flex gap-2 items-center w-full p-2 px-6 border-b-2 border-t-2'>
-// 			{/* @ts-ignore */}
-//             <Image src={user.avatar_url} alt="Profile" className="rounded-full w-10 h-10 mr-2" width={40} height={40} />
-//             <div className='cursor-pointer'>
-// 			{/* @ts-ignore */}
-//                 <a className="text-purple-500 hover:underline text-sm" onClick={() => createConversation(currentUser?.id, user.id)}>{user.full_name}</a>
-//             </div>
-//         </div>
-//     );
-// }
+	    return (
+
+			<div className='flex gap-2 items-center w-full p-2 px-6 border-b-2 border-t-2'>
+			{/* @ts-ignore */}
+			<Image src={user.avatar_url} alt="Profile" className="rounded-full w-10 h-10 mr-2" width={40} height={40} />
+			<div className='cursor-pointer'>
+			{/* @ts-ignore */}
+				<a className="text-purple-500 hover:underline text-sm" onClick={() => handler(user)}>{user.full_name}</a>
+			</div>
+		</div>
+    );
+}
 
 export default UsersList
