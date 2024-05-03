@@ -60,7 +60,7 @@ const UsersList = ({list}: {list: User[]}) => {
 			</DropdownMenuContent> */}
 		</DropdownMenu>
 
-		<ListOfUsers list={list}/>
+		<ListOfUsers list={list} key={Math.random()*44444}/>
 		</>
 	);
 }
