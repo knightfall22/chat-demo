@@ -62,7 +62,7 @@ const UsersList = ({list}: {list: User[]}) => {
 			</DropdownMenuContent> */}
 		</DropdownMenu>
 
-		<ListOfUsers list={list} key={Math.random()*44444}/>
+		<ListOfUsers list={list}/>
 		</>
 	);
 }
@@ -81,9 +81,8 @@ export const ListOfUsers = ({list}: {list: User[]}) => {
 						<DialogTitle>List of users </DialogTitle>
 					</DialogHeader>
 					
-					{list.map((user) => (
-						<SingleUser key={user.id} user={user} />
-					))}
+					{list.map((user) => <SingleUser key={user.id} user={user} />
+					)}
 					{/* <DialogFooter>
 						<Button type="submit" onClick={handleEdit}>
 							Save changes
