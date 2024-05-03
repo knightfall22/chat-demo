@@ -42,9 +42,12 @@ const ChatHeader = ({ user, list }: { user: User | undefined, list: User[] }) =>
         </div>
       </div>
       <div className='flex items-center gap-9'>
-      <UsersList list={list}/>
+
       {user ? (
-					<Button onClick={handleLogout}>Logout</Button>
+        <>
+          <UsersList list={list}/>
+          <Button onClick={handleLogout}>Logout</Button>
+        </>
 				) : (
 					<Button onClick={handleLoginWithGoogle}>Login</Button>
 				)}

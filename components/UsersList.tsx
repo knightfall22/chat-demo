@@ -85,7 +85,7 @@ export const ListOfUsers = ({list}: {list: User[]}) => {
 					</DialogHeader>
 					
 					{list.map((user) => (
-									<div className='flex gap-2 items-center w-full p-2 px-6 border-b-2 border-t-2'>
+								<div className='flex gap-2 items-center w-full p-2 px-6 border-b-2 border-t-2' key={user.id}>
 									{/* @ts-ignore */}
 									<Image src={user.avatar_url} alt="Profile" className="rounded-full w-10 h-10 mr-2" width={40} height={40} />
 									<div className='cursor-pointer'>
