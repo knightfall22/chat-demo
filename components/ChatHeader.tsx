@@ -46,7 +46,6 @@ const ChatHeader = ({ user, list }: { user: User | undefined, list: User[] }) =>
 
       {user ? (
         <>
-        <div>Hello</div>
          <UsersList list={list}/>
           <Button onClick={handleLogout}>Logout</Button>
         </>
