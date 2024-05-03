@@ -10,12 +10,25 @@ import ChatMessages from "@/components/ChatMessages";
 import Image from "next/image";
 import Sidebar from "@/components/Sidebar";
 import ChatAbout from "@/components/ChatAbout";
+import { useUser } from "@/lib/store/user";
 
 const page = async () => {
   const supabase = await createClient();
   const { data } = await supabase.auth.getUser();
+  let usersList;
 
   const user = data.user;
+
+  if (user !== null) {
+    const {data: asData} = await supabase
+    .from("users")
+    .select("*")
+
+    console.log("this is data",asData);
+    
+
+    usersList = asData
+  }
 
   return (
     <>
@@ -28,7 +41,7 @@ const page = async () => {
         )}
         <div className=" h-full border rounded-md flex flex-col relative flex-1">
           {/* @ts-ignore */}
-          <ChatHeader user={user} />
+          <ChatHeader user={user} list={usersList}/>
           {user ? (
             <>
             <ChatMessages />

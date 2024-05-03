@@ -8,6 +8,7 @@ import { createClient } from '@/lib/supabase/browser'
 import { toast } from 'sonner'
 import LoadMoreMessages from './LoadMoreMessages'
 import { ArrowDown } from 'lucide-react';
+import { ListOfUsers } from './UsersList'
 
 const ListMessages = () => {
     const scrollRef = useRef() as React.MutableRefObject<HTMLDivElement>;
@@ -131,6 +132,7 @@ const ListMessages = () => {
 					})}
 				</div>
 
+				
 				<DeleteAlert />
 				<EditAlert />
 			</div>
